@@ -1,0 +1,35 @@
+<ion-view view-title="Playlists">
+  <ion-content>
+
+
+</div>
+    <ion-list  can-swipe="NO">
+      <div class="item item-input-inset">
+        <label class="item-input-wrapper">
+          <input type="text" placeholder="Email" ng-model="q">
+        </label>
+        <button class="button button-small" on-tap="searchVideo(q)">
+          Submit
+        </button>
+      </div>
+      <ion-item ng-repeat="video in videos" class="item-text-wrap">
+
+      <h2>{{video.snippet.title}}</h2>
+            <p><i class="ion ion-ios-calendar-outline"></i> {{video.snippet.publishedAt | limitTo: 10}} {{video.snippet.description}}
+            </p>
+      <div ob-lazytube="{{video.id.videoId}}" modestbranding="1" rel="0">Keyboard cat</div>
+      <!-- <p class="small" ng-if="$first">{{video|json}}</p> -->
+      <!-- <pre class="small" ng-if="$first">{{video|json}}</pre> -->
+      <div ng-if="$first" ng-class="isItemShown(item) ? 'item-expand active' : 'item-expand inactive'" ng-click="toggleItem(item)">
+        <pre >{{video|json}}</pre>
+
+          </div>
+    </ion-item>
+
+      <ion-item ng-repeat="playlist in playlists|filter: q" href="#/app/playlists/{{playlist.id}}">
+        <h2>{{playlist.title}}</h2>
+        <p selectable>{{playlist.title}} id is {{playlist.id}}</p>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

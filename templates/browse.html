@@ -1,0 +1,23 @@
+<ion-view view-title="Browse">
+  <ion-content>
+
+    <div class="item item-input-inset">
+      <label class="item-input-wrapper">
+
+        <input type="text" placeholder="flicr" ng-model="q"  type22="submit" return-close="'1'" on-return="searchImage(q)">
+
+      </label>
+      <a class="button button-icon icon ion-search" on-tap="searchImage(q)"></a>
+
+    </div>
+
+
+
+
+                    <ion-gallery ion-gallery-items="photos"></ion-gallery>
+
+                    <p>{{photos|json}}</p>
+    <!-- <div ng-hide="loading" class="flickr-photo" ng-repeat="photo in photos"><a ng-href="#/{{photo.id}}"><img ng-src="http://farm{{photo.farm}}.static.flickr.com/{{photo.server}}/{{photo.id}}_{{photo.secret}}_s.jpg"></a></div> -->
+
+  </ion-content>
+</ion-view>

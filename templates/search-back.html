@@ -1,0 +1,133 @@
+<ion-view view-title="Search">
+  <ion-content >
+
+    <!-- <div class="list card">
+  <div class="item item-body" ng-repeat="(key, item) in items" href="#/app/playlists/{{key}}">
+    <h2>{{key}}</h2>
+    <p>{{item.scientificName}} {{item.authorship}} {{item.accordingTo}}</p>
+  </div>
+</div> -->
+
+    <ion-list can-swipe="false" class="card">
+      <div class="item item-input-inset">
+        <label class="item-input-wrapper">
+
+          <input ng-model="q" on-return="onSearch(q)" placeholder="Email" return-close="'1'" type22="submit" type="text">
+
+        </label>
+        <a class="button button-icon icon ion-search" on-tap="onSearch(q)"></a>
+
+      </div>
+      <div class="item item-text-wrap ">
+        <!-- {{searchHistory|json}} -->
+        <button class="button " ng-repeat="(key, history) in searchHistory" on-tap="onSearch(key, true)">{{key}}
+        </button>
+      </div>
+
+      <div class="row responsive-md">
+        <div class="col col-25">
+          history:
+          <button class="button " ng-repeat="(key, history) in searchHistory" on-tap="onSearch(key, true)">{{key}}
+          </button>
+        </div>
+        <div class="col">
+          <div class="item item-text-wrap item-thumbnail-r-left">
+
+            <h2>test</h2>
+            <img class="full-image item-image" src="http://media.eol.org/content/2014/10/04/08/80606_orig.jpg">
+
+            <p>fefefefefefef This is a "Facebook" styled Card. The header is created from a Thumbnail List item, the content is from a card-body consisting of an image and paragraph text. The footer consists of tabs, icons aligned left, within the card-footer.</p>
+          </div>
+          <div class="item item-text-wrap item-thumbnail-r-left" href="#/app/detail/{{key}}?eol={{item.EOL.id}}&gbif={{item.GBIF.key}}" ng-repeat="(key,item) in items" on-tap="openDetail(key, item)">
+
+            <h2>{{key}}</h2>
+            <img class="full-image item-image" ng-src="{{item.media[0].URL|trusted}}">
+
+            <p>{{item.authorship}}</p>
+            <p>
+              {{item.scientificName}}
+              {{item.detail}}</p>
+          </div>
+
+
+        </div>
+      </div>
+
+      <!-- <div class="list card">
+
+    <div class="item item-avatar item-icon-right">
+      <img src="mcfly.jpg">
+      <h2>Marty McFly</h2>
+      <p>November 05, 1955</p>
+      <i class="icon ion-ios-cloud-upload-outline" on-tap="onSearch(q)"></i>
+
+    </div>
+
+    <div class="item item-body">
+      <img class="full-image" src="delorean.jpg">
+      <p>
+        This is a "Facebook" styled Card. The header is created from a Thumbnail List item,
+         icons aligned left, within the card-footer.
+      </p>
+      <p>
+        <a href="#" class="subdued">1 Like</a>
+        <a href="#" class="subdued">5 Comments</a>
+      </p>
+    </div>
+
+  </div> -->
+      <div class="item item-text-wrap item-thumbnail-r-left">
+
+        <h2>test</h2>
+        <img class="full-image item-image" src="http://media.eol.org/content/2014/10/04/08/80606_orig.jpg">
+
+        <p>fefefefefefef This is a "Facebook" styled Card. The header is created from a Thumbnail List item, the content is from a card-body consisting of an image and paragraph text. The footer consists of tabs, icons aligned left, within the card-footer.</p>
+      </div>
+      <div class="item item-text-wrap item-thumbnail-r-left" href="#/app/detail/{{key}}?eol={{item.EOL.id}}&gbif={{item.GBIF.key}}" ng-repeat="(key,item) in items" on-tap="openDetail(key, item)">
+
+        <h2>{{key}}</h2>
+        <img class="full-image item-image" ng-src="{{item.media[0].URL|trusted}}">
+
+        <p>{{item.authorship}}</p>
+        <p>
+          {{item.scientificName}}
+          {{item.detail}}</p>
+      </div>
+      <div class="list card " href="#/app/detail/{{key}}?eol={{item.EOL.id}}&gbif={{item.GBIF.key}}" ng-repeat="(key,item) in items" on-tap="openDetail(key, item)">
+
+        <div class="item item-icon-right">
+
+          <i class=" icon ion-ios-cloud-upload-outline" on-tap="openDetail(key, item)"></i>
+
+        </div>
+
+        <div class="row responsive-sm">
+
+          <div class="col">
+            <h2>{{key}}</h2>
+            <span ng-repeat="source in item.sources">{{source}}</span>.
+            <p>{{item.authorship}}</p>
+
+            {{item.scientificName}}
+            {{item.detail}}
+          </div>
+          <div class="col">
+            <img class="full-image" ng-src="{{item.media[0].URL|trusted}}">
+          </div>
+        </div>
+
+        <!-- <p>
+      <a href="#" class="subdued">1 Like</a>
+      <a href="#" class="subdued">5 Comments</a>
+    </p> -->
+      </div>
+
+
+
+
+  </ion-list>
+
+
+
+</ion-content>
+</ion-view>

@@ -1,0 +1,69 @@
+<ion-view view-title="Detail of {{key}}">
+  <ion-content >
+
+
+
+<!-- <div class="list card">
+  <div class="item item-body" ng-repeat="(key, item) in items" href="#/app/playlists/{{key}}">
+    <h2>{{key}}</h2>
+    <p>{{item.scientificName}} {{item.authorship}} {{item.accordingTo}}</p>
+  </div>
+</div> -->
+<div class=" " selectable>
+
+  <div class="item item-avatar item-icon-right" selectable>
+    <img src="/img/GBIF.png">
+    <h2 selectable>T: {{key}}</h2>
+    <p selectable>November 05, 1955</p>
+     <i class="icon ion-ios-telephone-outline" on-tap="save()"></i>
+  </div>
+
+  <div class="item item-text-wrap" selectable>
+    <div class="gallery-scroller" >
+        <a ng-repeat="picture in item.media">
+          <img class="vh20 picture" src="{{ picture.URL }}">
+        </a>
+      </div>
+
+    <img class="full-image item-image" ng-src="{{item.media[0].URL|trusted}}">
+
+    <div selectable ng-repeat="content in item.contents">
+      <h2>{{content.TITLE}}</h2>
+      <p ng-bind-html="content.DETAIL"></p>
+    </div>
+    <p>
+      <a href="#" class="subdued">1 Like</a>
+      <a href="#" class="subdued">5 Comments</a>
+    </p>
+  </div>
+
+</div>
+<pre >{{item|json}}</pre>
+<!-- <div selectable>
+  {{item|json}}
+</div> -->
+    <ion-list class="card">
+
+      <ion-item class="item item-text-wrap" contenteditable='true'>
+
+        <h2>{{item.scientificName}} {{item.authorship}}</h2>
+
+        <p>{{item.accordingTo}}</p>
+
+
+        <p>{{item.descriptions[0].description}}</p>
+      </ion-item>
+    </ion-list>
+    <pre>{{items|json}}</pre>
+
+
+
+  </ion-content>
+  <fab-button-right target-id="content" ng-click="uploadItem(item)"> 
+    <i class="icon ion ion-plus-round"></i>
+
+  </fab-button-right>
+     <!-- <fab-button-right target-id="content">
+          <i class="icon ion-android-upload"></i>
+        </fab-button-right> -->
+</ion-view>

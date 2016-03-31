@@ -1,0 +1,122 @@
+<ion-side-menus enable-menu-with-back-views="false">
+  <ion-side-menu-content>
+    <ion-nav-bar class="bar-positive">
+      <ion-nav-back-button>
+      </ion-nav-back-button>
+
+      <ion-nav-buttons side="left">
+        <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+        </button>
+      </ion-nav-buttons>
+      <ion-nav-buttons side="right">
+    <!-- 登录按钮 -->
+    <!-- <span ng-if="!loggedInUser"> -->
+    <button ng-if="!loggedInUser" class="button button-icon button-clear iconfont icon-login" ng-click="openLogin()"></button>
+    <button ng-if="loggedInUser" class="button button-icon button-clear ion-person padding-right" ui-sref="app.user.myItems"></button>
+    <!-- </span> -->
+    <!-- 显示已登录用户信息 -->
+    <!-- <span ng-if="me">
+      <a class="button button-icon icon header-avatar-button"
+         ui-sref="app.user.myItems">
+
+      </a>
+    </span> -->
+    <button class="button button-icon icon ion-more"  ng-click="showMoreMenu($event)"></button>
+  </ion-nav-buttons>
+
+    </ion-nav-bar>
+    <ion-nav-view name="menuContent"></ion-nav-view>
+  </ion-side-menu-content>
+
+  <!-- <ion-side-menu side="left" expose-aside-when="large"> -->
+  <ion-side-menu side="left" expose-aside-when="(min-width:770px)">
+    <!-- <ion-header-bar class="bar-royal">
+      <h1 class="title">Left</h1>
+    </ion-header-bar> -->
+    <ion-content class="">
+      <ul class="list">
+        <span class="item item-header margin-top-15">
+          <h1 class="title"><img class="company-logo"/></h1>
+        </span>
+        <a ui-sref="app.search"
+           ui-sref-active="active"
+           class="item item-icon-left"
+           menu-close>
+          <i class="icon ion-home"></i>
+          search
+        </a>
+        <a ui-sref="app.marines"
+           ui-sref-active="active"
+           class="item item-icon-left"
+           menu-close>
+          <i class="icon ion-compose"></i>
+          marines
+        </a>
+      </ul>
+      <ion-list>
+        <ion-item menu-close ng-click="openLogin()" class="item-royal item-borderless">
+          Login
+        </ion-item>
+
+        <ion-item class="item-text-wrap item-royal item-borderless" menu-close >
+          {{loggedInUser.uid}}
+          {{loggedInUser.provider}}
+          <button class="button button-block button-clear button-dark" ng-click="logout()">logout</button>
+        </ion-item>
+        <ion-item menu-close ng-click="flogin() " class="item-royal item-borderless">
+          Login firebase
+        </ion-item>
+        <ion-item menu-close href="#/app/user/mine" class="item-royal item-borderless">
+          my items
+        </ion-item>
+        <ion-item menu-close href="#/app/marines" class="item-royal item-borderless">
+          marines
+        </ion-item>
+        <ion-item menu-close href="#/app/search" class="item-royal item-borderless">
+          Search
+        </ion-item>
+        <ion-item menu-close href="#/app/browse" class="item-royal item-borderless">
+          Browse
+        </ion-item>
+        <ion-item menu-close href="#/app/playlists" class="item-royal item-borderless">
+          Playlists
+        </ion-item>
+      </ion-list>
+    </ion-content>
+  </ion-side-menu>
+</ion-side-menus>
+
+
+
+
+<!-- <ion-side-menu side="left">
+         <ion-content>
+           <ul class="list">
+             <span class="item item-header margin-top-15">
+               <h1 class="title"><img class="company-logo"/></h1>
+             </span>
+             <a ui-sref="eventmenu.home"
+                ui-sref-active="active"
+                class="item item-icon-left"
+                menu-close>
+               <i class="icon ion-home"></i>
+               Home
+             </a>
+             <a ui-sref="eventmenu.checkin"
+                ui-sref-active="active"
+                class="item item-icon-left"
+                menu-close>
+               <i class="icon ion-compose"></i>
+               Check-in
+             </a>
+             <a ui-sref="eventmenu.attendees"
+                ui-sref-active="active"
+                class="item item-icon-left"
+                menu-close>
+               <i class="icon ion-person"></i>
+               Attendees
+             </a>
+           </ul>
+         </ion-content>
+       </ion-side-menu>
+     </ion-side-menus>  -->

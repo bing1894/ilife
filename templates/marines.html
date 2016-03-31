@@ -1,0 +1,32 @@
+<ion-view view-title="Playlists">
+  <ion-content>
+
+
+</div>
+<!-- <div class="list card">
+  <div class="item item-body" ng-repeat="(key, item) in items" href="#/app/playlists/{{key}}">
+    <h2>{{key}}</h2>
+    <p>{{item.scientificName}} {{item.authorship}} {{item.accordingTo}}</p>
+  </div>
+</div> -->
+    <ion-list class="card">
+      <div class="item item-input-inset">
+        <label class="item-input-wrapper">
+          <input type="text" placeholder="Search" ng-model="q">
+        </label>
+        <button class="button button-small">
+          Submit
+        </button>
+        <a class="button button-icon icon ion-search" on-tap="onSearch()"></a>
+      </div>
+      <ion-item class="item item-text-wrap" ng-repeat="(key, item) in items|filter: q" href="#/app/playlists/{{key}}">
+        <h2>{{item.scientificName}} {{item.authorship}}</h2>
+        <p>{{item.accordingTo}}</p>
+        <p>{{item.descriptions[0].description}}</p>
+      </ion-item>
+    </ion-list>
+
+
+
+  </ion-content>
+</ion-view>

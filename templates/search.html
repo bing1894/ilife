@@ -1,0 +1,86 @@
+<ion-view view-title="Search">
+  <ion-content >
+
+    <!-- <div class="list card">
+  <div class="item item-body" ng-repeat="(key, item) in items" href="#/app/playlists/{{key}}">
+    <h2>{{key}}</h2>
+    <p>{{item.scientificName}} {{item.authorship}} {{item.accordingTo}}</p>
+  </div>
+</div> -->
+
+    <ion-list can-swipe="false" class="card">
+      <div class="item item-input-inset">
+        <label class="item-input-wrapper">
+
+          <input ng-model="q" on-return="onSearch(q)" placeholder="Email" return-close="'1'" type22="submit" type="text">
+
+        </label>
+        <a class="button button-icon icon ion-search" on-tap="onSearch(q)"></a>
+
+      </div>
+
+
+      <div class="row responsive-md">
+        <div class="col col-25">
+          history:
+          <!-- <button class="button " ng-repeat="(key, history) in searchHistory" on-tap="onSearch(key)">{{key}} -->
+          <button class="button " ng-repeat="history in searchHistory|toArray|orderBy:'-timestamp'" on-tap="onSearch(history.q)">{{history.q}}
+          </button>
+        <p class="hidden-sm">  todo: some other information about seearch: result count, time, from</p>
+        </div>
+        <div class="col">
+          <div class="item item-text-wrap item-thumbnail-r-left">
+
+            <h2>test</h2>
+            <img class="full-image item-image" src="http://media.eol.org/content/2014/10/04/08/80606_orig.jpg">
+
+            <p>fefefefefefef This is a "Facebook" styled Card. The header is created from a Thumbnail List item, the content is from a card-body consisting of an image and paragraph text. The footer consists of tabs, icons aligned left, within the card-footer.</p>
+
+<p><span >
+      <a class="button-link text-note"
+         href
+         ng-click="uploadItem()">
+        <i class="ion ion-ios-cloud-upload-outline"></i>
+        add
+      </a>
+    </span><i class="icon fr ion-ios-cloud-upload-outline" on-tap="onSearch(q)"></i>
+  </p>
+
+          </div>
+          <div class="item item-text-wrap item-thumbnail-r-left" href="#/app/detail/{{key}}?eol={{item.EOL.id}}&gbif={{item.GBIF.key}}" ng-repeat="(key,item) in items" on-tap="openDetail(key, item)">
+
+            <h2>{{key}}</h2>
+            <img class="full-image item-image" ng-src="{{item.media[0].URL|trusted}}">
+
+<span class="label label-default" ng-repeat="source in item.sources">{{source}}</span>
+            <p>{{item.authorship}}</p>
+            <p>
+              {{item.scientificName}}
+              {{item.detail}}</p>
+              <p><span >
+                    <a class="button-link text-note"
+                       href
+                       on-tap="uploadItem(item,$event)">
+                      <i class="ion ion-ios-cloud-upload-outline"></i>
+                      add
+                    </a>
+                  </span>
+                </p>
+          </div>
+
+
+        </div>
+      </div>
+
+
+    </div>
+
+
+
+
+  </ion-list>
+
+
+
+</ion-content>
+</ion-view>

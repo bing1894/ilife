@@ -1,0 +1,52 @@
+<ion-view view-title="My ....">
+  <ion-nav-bar class="bar-positive">
+    <ion-nav-back-button>
+    </ion-nav-back-button>
+
+    <ion-nav-buttons side="left">
+      <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+      </button>
+
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right">
+      <button ng-click="toggleDelete()" class="button button-clear">{{editBtnText}}</button>
+
+
+    </ion-nav-buttons>
+  </ion-nav-bar>
+
+  <ion-content>
+
+
+
+
+<!-- <div class="list card">
+  <div class="item item-body" ng-repeat="(key, item) in items" href="#/app/playlists/{{key}}">
+    <h2>{{key}}</h2>
+    <p>{{item.scientificName}} {{item.authorship}} {{item.accordingTo}}</p>
+  </div>
+</div> -->
+    <ion-list class="card" show-delete="isDeletingItems" on-delete="deleteListItem(item, index)" delete-icon="ion-minus-circled" reorder-icon="ion-navicon" animation="my-repeat-animation" can-delete="true" can-reorder="true" can-swipe="true">
+      <div class="item item-input-inset">
+        <label class="item-input-wrapper">
+          <input type="text" placeholder="Search" ng-model="q">
+        </label>
+        <button class="button button-small">
+          Submit
+        </button>
+        <a class="button button-icon icon ion-search" on-tap="onSearch()"></a>
+      </div>
+      <!-- <ion-item class="item item-text-wrap" ng-repeat="(key, item) in items|filter: q" href="#/app/playlists/{{key}}"> -->
+      <ion-item class="item item-text-wrap item-thumbnail-left" ng-repeat="(key, item) in myItems" href="#/app/playlists/{{key}}">
+        <ion-delete-button class="ion-minus-circled" on-tap="deleteListItem(key)"></ion-delete-button>
+        <img class="full-image item-image" src="{{item.media[0].URL}}">
+        <h2>{{item.KEY}} {{item.authorship}}</h2>
+        <p>{{item.accordingTo}}</p>
+        <p>{{item.contents[0].DETAIL|limitTo:100}}</p>
+      </ion-item>
+    </ion-list>
+
+
+
+  </ion-content>
+</ion-view>
